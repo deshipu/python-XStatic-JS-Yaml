@@ -125,8 +125,8 @@ rm -rf %{buildroot}%{python3_sitelib}/xstatic/pkg/js_yaml/data/
 %files -n python2-%{pypi_name}
 %doc README.txt
 %{python2_sitelib}/xstatic/pkg/js_yaml
-%{python2_sitelib}/XStatic_JS_Yaml-%{version}-py%{python_version}.egg-info
-%{python2_sitelib}/XStatic_JS_Yaml-%{version}-py%{python_version}-nspkg.pth
+%{python2_sitelib}/XStatic_JS_Yaml-%{version}-py%{python2_version}.egg-info
+%{python2_sitelib}/XStatic_JS_Yaml-%{version}-py%{python2_version}-nspkg.pth
 
 %files -n xstatic-js-yaml-common
 %doc README.txt
