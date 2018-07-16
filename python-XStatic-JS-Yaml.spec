@@ -7,7 +7,6 @@
 Name:           python-%{pypi_name}
 Version:        3.8.1.0
 Release:        1%{?dist}
-Provides:       python2-%{pypi_name} = %{version}-%{release}
 Summary:        JS-Yaml (XStatic packaging standard)
 
 License:        MIT
@@ -46,6 +45,28 @@ It intentionally does not provide any extra code except some metadata
 nor has any extra requirements.
 
 This package contains the JavaScript files.
+
+
+%package -n python2-%{pypi_name}
+Summary:        %{summary}
+
+BuildRequires:  python2-devel
+BuildRequires:  python2-setuptools
+
+Requires:       python2-XStatic
+Requires:       xstatic-js-yaml-common
+
+%{?python_provide:%python_provide python2-%{pypi_name}}
+
+%description -n python2-%{pypi_name}
+JS-Yaml JavaScript library packaged for setup-tools (easy_install) / pip.
+
+This package is intended to be used by any project that needs these files.
+
+It intentionally does not provide any extra code except some metadata
+nor has any extra requirements.
+
+This package provides Python 2 build of %{pypi_name}.
 
 
 %if 0%{?with_python3}
@@ -101,7 +122,7 @@ rm -rf %{buildroot}%{python3_sitelib}/xstatic/pkg/js_yaml/data/
 %endif
 
 
-%files -n python-%{pypi_name}
+%files -n python2-%{pypi_name}
 %doc README.txt
 %{python2_sitelib}/xstatic/pkg/js_yaml
 %{python2_sitelib}/XStatic_JS_Yaml-%{version}-py%{python_version}.egg-info
